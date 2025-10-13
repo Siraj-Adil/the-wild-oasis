@@ -13,10 +13,10 @@ export default function ReservationList({ bookings }) {
         }
     );
     // 'optimisticBookings' state will be same as 'bookings' state in the beginning
-    // 'optimisticBookings' = Result of 'Result of 'optimisticDelete(bookingId)' function and alling 'optimisticDelete' fucntion
-    // with a parameter will call the function we define inside the 'useOptimistic' hook ie {return curBooking.filter((booking) => booking.id !== bookingIdToDelete);}'
+    // 'optimisticBookings' = Result of calling 'optimisticDelete(bookingId)' function which in turn will call the function
+    // we define inside the 'useOptimistic' hook ie {return curBooking.filter((booking) => booking.id !== bookingIdToDelete);}'
     // and both 'bookings' and the parameter of the 'optimisticDelete' function will be passed to the function which we have
-    // defined inside 'useOptimistic' hook
+    // defined inside 'useOptimistic' hook ie {return curBooking.filter((booking) => booking.id !== bookingIdToDelete);}'
 
     // Note that in case when real delete fucntion ie 'await deleteBooking(bookingId);' fails bcz of error then this hook
     // will revert back the UI to the pre delete state ie 'optimisticBookings' will revert back to previous state
